@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Are @Theodo's toilets free?</title>
+
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">
+    <link rel="stylesheet" href="bower_components/html5-boilerplate/css/main.css">
+    <link rel="stylesheet" href="app.css"/>
+    <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/underscore/underscore.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var xhr = new XMLHttpRequest();
+
+            xhr.open("GET", "http://192.168.102.13", true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4) {
+                    // JSON.parse does not evaluate the attacker's scripts.
+                    var resp = JSON.parse(xhr.responseText);
+
+                    var $toilets = $('table#toilets');
+                    var template = '<span class="indicator <%= status %>"></span> <%= type %>';
+
+                    resp.every(function (toilet) {
+                        $toilets.find('tbody').append(_.template(template, {
+                            "status": toilet.occupationStatus ? 'used': 'free',
+                            "type": toilet.type
+                        }))
+                    });
+                }
+            };
+            xhr.send();
+        });
+    </script>
+</head>
+<body>
+    <h1>Are @Theodo's toilets free?</h1>
+
+    <table id="toilets">
+        <tbody>
+
+        </tbody>
+    </table>
+</body>
+</html>

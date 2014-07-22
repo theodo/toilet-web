@@ -1,0 +1,25 @@
+* {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+table {
+    margin-left:auto;
+    margin-right:auto;
+}
+
+span.indicator {
+    border: 5px solid;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    font-size: 1px;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+span.indicator.free { border-color: #5cb85c; }
+span.indicator.used { border-color: #f0ad4e; }

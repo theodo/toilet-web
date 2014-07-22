@@ -1,0 +1,22 @@
+{
+  "name": "are-the-toilets-free",
+  "version": "0.0.0",
+  "authors": [
+    "Benjamin Grandfond <benjamin.grandfond@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.2.0",
+    "html5-boilerplate": "~4.3.0",
+    "less": "~1.7.3",
+    "underscore": "~1.6.0"
+  }
+}
